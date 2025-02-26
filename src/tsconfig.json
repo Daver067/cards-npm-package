@@ -16,6 +16,6 @@
       "@/*": ["src/*"] // Path aliases (if needed)
     }
   },
-  "include": ["src/**/*"], // Include all files inside the 'src' folder
+  "include": ["src/**/*", "declarations.d.ts"], // Include all files inside the 'src' folder
   "exclude": ["node_modules", "dist"] // Exclude node_modules and dist folder
 }

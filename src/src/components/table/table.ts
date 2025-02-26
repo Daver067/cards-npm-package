@@ -1,4 +1,5 @@
 import { TableSettings, TableOptions } from "@/types/table.types";
+import fortyFive from "../../styles/images/45-degree-fabric-light.png";
 
 export class Table {
   private options: TableSettings;
@@ -6,8 +7,7 @@ export class Table {
 
   constructor(element: HTMLElement, options: TableOptions = {}) {
     this.options = {
-      tileImage:
-        options.tileImage ?? "../../styles/images/45-degree-fabric-light.png",
+      tileImage: options.tileImage ?? fortyFive,
       overlayStartColor: options.overlayStartColor ?? "rgba(0, 100, 0, 0.6)",
       overlayEndColor: options.overlayEndColor ?? "rgba(0, 60, 0, 0.8)",
       overlayGradientType: options.overlayGradientType ?? "linear",

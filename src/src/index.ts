@@ -6,6 +6,7 @@ export {
   slideCard,
   slideDeck,
   turnCard,
+  denyMove,
   zoomCard,
 } from "./components/animate/animate";
 export { default as Card } from "./components/card/card";
