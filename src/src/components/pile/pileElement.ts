@@ -378,41 +378,73 @@ export const pileElement = <T extends Card>(
     // Card dragged index
     const originalIndex = cardElements.indexOf(cardElement);
 
-    // Iterate over all children in the pile.
-    cardElements.forEach((element) => {
-      // Get the card's z-index as a number.
-      const cardIndex = cardElements.indexOf(element);
+    function isChrome() {
+      const userAgent = navigator.userAgent;
+      // Check if 'Chrome' exists in the userAgent string but exclude 'Edge' and 'Opera'
+      return /Chrome/.test(userAgent) && !/Edge|OPR|Opera/.test(userAgent);
+    }
 
-      if (cardIndex === originalIndex && options.groupDrag === false) {
-        element.container.classList.add("card-dragging");
-        const originalTransform = element.container.style.transform;
-        const containerScale = container.style.transform;
-        const newTransform = `${originalTransform} ${containerScale}`;
-        element.container.style.transform = newTransform;
-        const clone = element.container.cloneNode(true);
-        element.container.style.transform = originalTransform;
-
-        dragImage.appendChild(clone);
-      }
-
-      // Only add the class if the card's z-index is higher than the original.
-      // Clone each card element and append to dragImage.
-      if (cardIndex >= originalIndex && options.groupDrag === true) {
-        element.container.classList.add("card-dragging");
-        const originalTransform = element.container.style.transform;
-        const containerScale = container.style.transform;
-        const newTransform = `${originalTransform} ${containerScale}`;
-        element.container.style.transform = newTransform;
-        const clone = element.container.cloneNode(true);
-        element.container.style.transform = originalTransform;
-
-        dragImage.appendChild(clone);
-        if (cardIndex !== originalIndex) {
-          data.indexs.push(cardIndex);
+    //! Fix this to actually work for safari and firefox. Chrome Version works fine
+    if (isChrome()) {
+      cardElements.forEach((element) => {
+        // Get the card's z-index as a number.
+        const cardIndex = cardElements.indexOf(element);
+        if (cardIndex === originalIndex && options.groupDrag === false) {
+          element.container.classList.add("card-dragging");
+          const originalTransform = element.container.style.transform;
+          const containerScale = container.style.transform;
+          const newTransform = `${originalTransform} ${containerScale}`;
+          element.container.style.transform = newTransform;
+          const clone = element.container.cloneNode(true);
+          element.container.style.transform = originalTransform;
+          dragImage.appendChild(clone);
         }
-      }
-    });
-
+        // Only add the class if the card's z-index is higher than the original.
+        // Clone each card element and append to dragImage.
+        if (cardIndex >= originalIndex && options.groupDrag === true) {
+          element.container.classList.add("card-dragging");
+          const originalTransform = element.container.style.transform;
+          const containerScale = container.style.transform;
+          const newTransform = `${originalTransform} ${containerScale}`;
+          element.container.style.transform = newTransform;
+          const clone = element.container.cloneNode(true);
+          element.container.style.transform = originalTransform;
+          dragImage.appendChild(clone);
+          if (cardIndex !== originalIndex) {
+            data.indexs.push(cardIndex);
+          }
+        }
+      });
+    } else {
+      //! this rotates the card back to straight, and only shows 1 card in a group
+      cardElements.forEach((element) => {
+        // Get the card's z-index as a number.
+        const cardIndex = cardElements.indexOf(element);
+        if (cardIndex === originalIndex && options.groupDrag === false) {
+          element.container.classList.add("card-dragging");
+          const originalTransform = element.container.style.transform;
+          element.container.style.transform = "";
+          const clone = element.container.cloneNode(true);
+          element.container.style.transform = originalTransform;
+          dragImage.appendChild(clone);
+        }
+        // Only add the class if the card's z-index is higher than the original.
+        // Clone each card element and append to dragImage.
+        if (cardIndex >= originalIndex && options.groupDrag === true) {
+          element.container.classList.add("card-dragging");
+          if (cardIndex === originalIndex) {
+            const originalTransform = element.container.style.transform;
+            element.container.style.transform = "";
+            const clone = element.container.cloneNode(true);
+            element.container.style.transform = originalTransform;
+            dragImage.appendChild(clone);
+            if (cardIndex !== originalIndex) {
+              data.indexs.push(cardIndex);
+            }
+          }
+        }
+      });
+    }
     // It is necessary to add the drag image element off-screen before using it.
     dragImage.style.position = "absolute";
     dragImage.style.top = "-9999px";

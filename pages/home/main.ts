@@ -1,8 +1,8 @@
 import "../navMenu/navMenu";
 import "../styles/reset.css";
-import "./home.css";
 import "../styles/style.css";
 import { setTheme, redFelt, StandardDeckOfCards, deal } from "@/dist";
+import "./home.css";
 
 const app = document.getElementById("app");
 if (app) {
