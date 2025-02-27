@@ -24,7 +24,7 @@ type PlayerType<T extends Card> = {
   constructor(
     name: string,
     deck: Deck<T>,
-    piles: { name: string; options?: Partial<pileOptionsType<T>> }[],
+    piles: { name: string; options?: Partial<PileOptionsType<T>> }[],
     cardInitializer?: string,
   )
 ```

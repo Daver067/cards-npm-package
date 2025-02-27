@@ -22,7 +22,7 @@ Pile Elements take a third optional argument which is an object containing diffe
 ## Option Type
 
 ```typescript
-type pileOptionsType<T extends Card> = {
+type PileOptionsType<T extends Card> = {
   cardElements: CardElementType<T>[];
   layout: "stack" | "cascade" | "visibleStack";
   rules: Rules<T>;

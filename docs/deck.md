@@ -21,7 +21,7 @@ type DeckType<T extends Card> = {
   createPileElement: (
     name: string,
     cards?: T[],
-    options?: Partial<pileOptionsType<T>>,
+    options?: Partial<PileOptionsType<T>>,
   ) => PileElementType<T>;
   removeCard: (card: T) => boolean
 
@@ -100,7 +100,7 @@ createPileElement can take 3 arguments:
 | -------------- | ----------------------------- | ---------------------- |
 | name           | `string`                      | Yes                    |
 | cards          | `Array of Cards<T>`           | Only if adding options |
-| options        | `Partial<pileOptionsType<T>>` | No                     |
+| options        | `Partial<PileOptionsType<T>>` | No                     |
 
 Providing any cards to the second argument will initiate those cards in that pile. All cards being used **MUST** be initialized in some pile.
 

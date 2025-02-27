@@ -16,7 +16,7 @@ Pile Elements are where the magic happens. Pile elements house the card elements
 | readonly: topCardElement | `CardElement<T>`     | Card Element visually on top of the stack (last in array)                |
 | readonly: cardElements   | `CardElement<T>[]`   | Array of all Card Elements associated with pile element                  |
 | readonly: container      | `HTMLElement`        | The DOM element of this pile element                                     |
-| options                  | `pileOptionsType<T>` | Additional options                                                       |
+| options                  | `PileOptionsType<T>` | Additional options                                                       |
 | moveCardToPile           | `function`           | Passing card function                                                    |
 | updateShadows            | `function`           | Updates shadows on cards depending on density of cards                   |
 | cascade                  | `function`           | Re-stack cards in pile                                                   |

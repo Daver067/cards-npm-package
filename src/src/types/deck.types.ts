@@ -1,6 +1,6 @@
 import Card from "../components/card/card";
 import Pile from "../components/pile/pile";
-import { PileElementType, pileOptionsType } from "./pile.types";
+import { PileElementType, PileOptionsType } from "./pile.types";
 
 export type DeckType<T extends Card> = {
   readonly cards: T[];
@@ -10,7 +10,7 @@ export type DeckType<T extends Card> = {
   createPileElement: (
     name: string,
     cards?: T[],
-    options?: Partial<pileOptionsType<T>>,
+    options?: Partial<PileOptionsType<T>>,
   ) => PileElementType<T>;
   removeCard: (card: T) => boolean;
 };
