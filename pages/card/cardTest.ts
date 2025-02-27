@@ -2,7 +2,7 @@ import "../navMenu/navMenu";
 import "../styles/style.css";
 import "./styles.css";
 import "../styles/reset.css";
-import { setTheme, greenFelt, StandardDeckOfCards } from "@/src";
+import { setTheme, greenFelt, StandardDeckOfCards } from "@/dist";
 const body = document.querySelector("body");
 if (body) {
   setTheme(greenFelt, body);

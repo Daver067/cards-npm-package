@@ -10,10 +10,10 @@ import {
   quickPassRules,
   Rules,
   deal,
-} from "@/src";
-import { denyMove } from "@/src/components/animate/animate";
-import { CardElementType } from "@/src/types/card.types";
-import { PileElementType } from "@/src/types/pile.types";
+  denyMove,
+  CardElementType,
+  PileElementType,
+} from "@/dist";
 
 const freeCell = document.getElementById("freeCell");
 if (freeCell) {

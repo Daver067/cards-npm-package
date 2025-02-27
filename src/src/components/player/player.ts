@@ -1,6 +1,6 @@
 import Card from "../card/card";
 import Deck from "../deck/deck";
-import { PileElementType, pileOptionsType } from "../../types/pile.types";
+import { PileElementType, PileOptionsType } from "../../types/pile.types";
 
 export default class Player<T extends Card> {
   private _deck: Deck<T>;
@@ -9,7 +9,7 @@ export default class Player<T extends Card> {
   constructor(
     name: string,
     deck: Deck<T>,
-    piles: { name: string; options?: Partial<pileOptionsType<T>> }[],
+    piles: { name: string; options?: Partial<PileOptionsType<T>> }[],
     cardInitializer?: string,
   ) {
     this._deck = deck;

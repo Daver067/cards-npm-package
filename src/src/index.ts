@@ -1,3 +1,14 @@
+export { CardElementType } from "./types/card.types";
+export { DeckType } from "./types/deck.types";
+export {
+  DragData,
+  PileElementType,
+  PileOptionsType,
+  PileType,
+} from "./types/pile.types";
+export { Rule, RuleSet } from "./types/rules.types";
+export { TableOptions, TableSettings } from "./types/table.types";
+
 export { default as FlashCard } from "./components/card/flashCard/flashCardClass";
 export { default as FlashCardElement } from "./components/card/flashCard/flashCardElement";
 export {

@@ -2,7 +2,7 @@ import Card from "../card/card";
 import { CardElement } from "../card/cardElement";
 import Pile from "../pile/pile";
 import { createDefaultOptions, pileElement } from "../pile/pileElement";
-import { PileElementType, pileOptionsType } from "../../types/pile.types";
+import { PileElementType, PileOptionsType } from "../../types/pile.types";
 import { CardElementType } from "../../types/card.types";
 import { DeckType } from "../../types/deck.types";
 
@@ -69,9 +69,9 @@ export default class Deck<T extends Card> implements DeckType<T> {
   createPileElement = (
     name: string,
     cards: T[] = [],
-    options: Partial<pileOptionsType<T>> = {},
+    options: Partial<PileOptionsType<T>> = {},
   ): PileElementType<T> => {
-    const mergedOptions: pileOptionsType<T> = {
+    const mergedOptions: PileOptionsType<T> = {
       ...createDefaultOptions(),
       ...{ cardElements: cards.map((card) => this._cardBuilder(card)) },
       ...options,

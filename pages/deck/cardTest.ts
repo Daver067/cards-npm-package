@@ -4,7 +4,7 @@ import {
   StandardDeckOfCards,
   slideCard,
   zoomCard,
-} from "@/src";
+} from "@/dist";
 import "../navMenu/navMenu";
 import "../styles/reset.css";
 import "./styles.css";

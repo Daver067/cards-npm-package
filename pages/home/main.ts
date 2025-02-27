@@ -2,7 +2,7 @@ import "../navMenu/navMenu";
 import "../styles/reset.css";
 import "./home.css";
 import "../styles/style.css";
-import { setTheme, redFelt, StandardDeckOfCards, deal } from "@/src";
+import { setTheme, redFelt, StandardDeckOfCards, deal } from "@/dist";
 
 const app = document.getElementById("app");
 if (app) {
@@ -104,6 +104,7 @@ if (app) {
         for (let index = totalCards - 1; index > -1; index--) {
           const card = titleCards.cardElements[index];
           card.flip(100);
+          card.container.style.transitionDuration = null;
 
           // Wait for transition to complete before moving to next card
           await new Promise((resolve) => setTimeout(resolve, 400));
