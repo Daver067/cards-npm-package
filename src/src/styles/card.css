@@ -1,8 +1,10 @@
 @font-face {
   font-family: "Crete Round";
   src:
-    url("./fonts/creteround-regular-webfont.woff2") format("woff2"),
-    url("./fonts/creteround-regular-webfont.woff") format("woff");
+    url("https://card-factory.info/fonts/creteround-regular-webfont.woff2")
+      format("woff2"),
+    url("https://card-factory.info/fonts/creteround-regular-webfont.woff")
+      format("woff");
   font-weight: normal;
   font-style: normal;
 }

@@ -1,13 +1,13 @@
 {
   "name": "card-factory",
-  "version": "1.0.7",
+  "version": "1.0.10",
   "description": "A comprehensive library for card manipulation",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "style": "dist/styles/index.css",
   "scripts": {
-    "build": "tsc --build && npm run copy-css",
-    "copy-css": "cp -r src/styles dist/styles && cp -r src/components/card dist/components/card"
+    "build": "rm -rf dist && tsc --build && npm run copy-assets",
+    "copy-assets": "cp -r src/styles dist/styles && cp README.md dist/"
   },
   "repository": {
     "type": "git",

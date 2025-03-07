@@ -616,6 +616,7 @@ export const pileElement = <T extends Card>(
     dragImage.style.top = `${touch.pageY - touchData.startY}px`;
     dragImage.style.opacity = "0.5";
     dragImage.style.pointerEvents = "none";
+    dragImage.style.zIndex = "1000";
     dragImage.id = "card-dragImage";
 
     // clear the transform for the original drag image. (this one is absolute, so a transform will unnecessarily move it)

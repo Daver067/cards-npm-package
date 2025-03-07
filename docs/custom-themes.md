@@ -9,7 +9,7 @@ outline: deep
 The fastest way to apply a theme is using the `setTheme` function with a predefined theme:
 
 ```typescript
-import { setTheme, greenFelt } from "@/components/table/themes";
+import { setTheme, greenFelt } from "card-factory";
 
 const body = document.querySelector("body");
 if (body) {
@@ -22,7 +22,7 @@ if (body) {
 For more control, you can configure the table directly using the `Table` class:
 
 ```typescript
-import { TableSettings, Table } from "@/components/table/table";
+import { TableSettings, Table } from "card-factory";
 
 // Define your custom theme
 const customTheme: TableSettings = {
@@ -66,7 +66,7 @@ table.setBackground();
 
 ### Predefined Themes
 
-CardsJS comes with several predefined themes that you can use out of the box. These themes can be found and customized in `/src/components/table/themes.ts`:
+CardsJS comes with several predefined themes that you can use out of the box. These themes can be found and customized in `/components/table/themes.ts`:
 
 #### greenFelt
 

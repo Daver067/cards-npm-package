@@ -1,5 +1,4 @@
 import { TableSettings, TableOptions } from "@/types/table.types";
-import fortyFive from "../../styles/images/45-degree-fabric-light.png";
 
 export class Table {
   private options: TableSettings;
@@ -7,7 +6,7 @@ export class Table {
 
   constructor(element: HTMLElement, options: TableOptions = {}) {
     this.options = {
-      tileImage: options.tileImage ?? fortyFive,
+      tileImage: options.tileImage ?? "45-degree-fabric-light.png",
       overlayStartColor: options.overlayStartColor ?? "rgba(0, 100, 0, 0.6)",
       overlayEndColor: options.overlayEndColor ?? "rgba(0, 60, 0, 0.8)",
       overlayGradientType: options.overlayGradientType ?? "linear",
@@ -38,7 +37,7 @@ export class Table {
 
     if (this.options.tileImage) {
       backgroundImages.push(
-        `url("${new URL(this.options.tileImage, import.meta.url)}")`,
+        `url("https://card-factory.info/images/${this.options.tileImage}")`,
       );
       backgroundSizes.push("auto");
       backgroundRepeats.push("repeat");

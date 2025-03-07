@@ -47,9 +47,7 @@ Ok, now we're going to setup a new index.html, styles.css and script.ts for our 
 ## script.ts
 
 ```typescript
-import FlashCard from "@/components/card/flashCard/flashCardClass";
-import Deck from "@/components/deck/deck";
-import FlashCardElement from "@/components/card/flashCard/flashCardElement";
+import { FlashCard, Deck, FlashCardElement } from "card-factory";
 import "./styles.css";
 
 // the info I want on my flashcards

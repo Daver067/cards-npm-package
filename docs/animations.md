@@ -27,12 +27,7 @@ You will need to create a [pile element](/pileElement) to store the card element
 See uses of animations below, only uncomment one animation at a time to see the example
 
 ```typescript
-import {
-  denyMove,
-  slideCard,
-  turnCard,
-  zoomCard,
-} from "@/components/animate/animate";
+import { denyMove, slideCard, turnCard, zoomCard } from "card-factory";
 
 player1HandPile.container.addEventListener("click", async () => {
   const card = player1HandPile.topCardElement;
@@ -59,7 +54,7 @@ As deal requires the cards to be loaded, it is smart to nest deal in a listener 
 Use of deal below:
 
 ```typescript
-import { deal } from "@/components/animate/animate";
+import { deal } from "card-factory";
 
 window.addEventListener("DOMContentLoaded", async () => {
   await deal(7, drawPile, handPile, 100);

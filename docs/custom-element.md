@@ -15,8 +15,7 @@ This Factory Function will have two functions, one to build the div for the fron
 Our function will return a CardElement of the type `<FlashCard>` using the card we provide, along with the return of the front and back div functions.
 
 ```typescript
-import FlashCard from "./flashCardClass";
-import { CardElement } from "../cardElement";
+import { FlashCard, CardElement } from "card-factory";
 import "./flashCard.css";
 
 const FlashCardElement = (card: FlashCard) => {
