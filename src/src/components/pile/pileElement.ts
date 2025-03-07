@@ -438,9 +438,9 @@ export const pileElement = <T extends Card>(
             const clone = element.container.cloneNode(true);
             element.container.style.transform = originalTransform;
             dragImage.appendChild(clone);
-            if (cardIndex !== originalIndex) {
-              data.indexs.push(cardIndex);
-            }
+          }
+          if (cardIndex !== originalIndex) {
+            data.indexs.push(cardIndex);
           }
         }
       });
