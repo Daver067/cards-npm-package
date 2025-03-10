@@ -41,6 +41,7 @@ h1 {
 .hero {
   max-width: 768px;
   margin: auto;
+  margin-bottom: 2rem;
   text-align: left;
 
   display: flex;
@@ -51,8 +52,10 @@ h1 {
   & .text {
     display: flex;
     flex-direction: column;
+    gap: 1rem;
     align-items: start;
     margin: min(1rem, 10vw);
+    text-shadow: 2px 2px 2px #000000;
   }
 
   & .heading {
@@ -64,7 +67,54 @@ h1 {
     color: rgb(232, 231, 231);
   }
 
+  & .buttons {
+    display: flex;
+    gap: 1rem;
+  }
+
+  & .btn {
+    background-color: black;
+    color: white;
+    border-radius: 0.5rem;
+    padding: 0.75rem;
+    display: flex;
+    gap: 0.75rem;
+    flex-direction: row-reverse;
+
+    & img {
+      filter: invert(1);
+    }
+  }
+
   @media (min-width: 768px) {
     flex-direction: row;
+  }
+}
+@media (min-width: 1201px) {
+  .title {
+    & .deck-base {
+      top: -50%;
+    }
+  }
+}
+@media (min-width: 769px) and (max-width: 1200px) {
+  .title {
+    & .deck-base {
+      top: -90%;
+    }
+  }
+}
+@media (min-width: 481px) and (max-width: 768px) {
+  .title {
+    & .deck-base {
+      top: -120%;
+    }
+  }
+}
+@media (max-width: 481px) {
+  .title {
+    & .deck-base {
+      top: -170%;
+    }
   }
 }

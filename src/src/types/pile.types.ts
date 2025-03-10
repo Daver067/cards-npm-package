@@ -48,15 +48,9 @@ export type PileOptionsType<T extends Card> = {
     destination: PileElementType<T>,
     ...extraArgs: unknown[]
   ) => boolean;
-  moveCardAnimation:
-    | ((
-        source: PileElementType<T>,
-        destination: PileElementType<T>,
-        cardThatWasPassed: CardElementType<T>,
-        index: number,
-        groupOffset?: number,
-      ) => Promise<Animation | undefined>)
-    | null;
+  animatePass: boolean;
+  passCardAnimationCallback: (() => Promise<void>) | null;
+  receiveCardAnimationCallback: (() => Promise<void>) | null;
 };
 
 export type Offset = [number, number];

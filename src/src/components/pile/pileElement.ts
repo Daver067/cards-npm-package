@@ -34,7 +34,9 @@ export const createDefaultOptions = <T extends Card>(): PileOptionsType<T> => ({
   groupDrag: true,
   receiveCardCallback: () => true,
   passCardCallback: () => true,
-  moveCardAnimation: animateMoveCardToNewPile,
+  animatePass: true,
+  passCardAnimationCallback: null,
+  receiveCardAnimationCallback: null,
 });
 
 // Adds a base the size of the card to be the basis of deck layouts.\
@@ -172,7 +174,7 @@ export const pileElement = <T extends Card>(
     groupOffset: number = 0,
   ) {
     const gameRules = options.rules;
-    const animationCallback = options.moveCardAnimation;
+    //const animationCallback = options.moveCardAnimation;
     try {
       // checks to find the card in the source pile
       if (cardElements.indexOf(cardElement) === -1) {
@@ -204,22 +206,22 @@ export const pileElement = <T extends Card>(
       console.error(error);
       return false;
     }
-    // hit the callbacks for both passing and recieving cards
-    options.passCardCallback(cardElement, this, destinationPile);
-    destinationPile.options.receiveCardCallback(
-      cardElement,
-      this,
-      destinationPile,
-    );
 
     // if the animation callback is set to null, don't animate anything and return
     //! untested
-    if (animationCallback === null) {
+    if (options.animatePass === false) {
       destinationPile.cardElements.push(
         cardElements.splice(cardElements.indexOf(cardElement), 1)[0],
       );
       cascade();
       destinationPile.cascade();
+      // hit the callbacks for both passing and recieving cards
+      options.passCardCallback(cardElement, this, destinationPile);
+      destinationPile.options.receiveCardCallback(
+        cardElement,
+        this,
+        destinationPile,
+      );
       return Promise.resolve(undefined);
     }
 
@@ -243,7 +245,7 @@ export const pileElement = <T extends Card>(
     }
 
     // the card got passed, and this is the animation we want to show.
-    return animationCallback(
+    return animateMoveCardToNewPile(
       this,
       destinationPile,
       cardElement,
@@ -251,8 +253,19 @@ export const pileElement = <T extends Card>(
       groupOffset,
     ).then((animation) => {
       // wait for the card to move, then update the shadows on both piles
+      // hit the callbacks for both passing and recieving cards
+      options.passCardCallback(cardElement, this, destinationPile);
+      destinationPile.options.receiveCardCallback(
+        cardElement,
+        this,
+        destinationPile,
+      );
       updateShadows();
       destinationPile.updateShadows();
+      if (options.passCardAnimationCallback !== null)
+        options.passCardAnimationCallback();
+      if (destinationPile.options.receiveCardAnimationCallback !== null)
+        destinationPile.options.receiveCardAnimationCallback();
       return animation;
     });
   }
