@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "outDir": "dist", // Ensure the compiled files go into 'dist'
+    "rootDir": "src", // The root directory of your source files
+    "declaration": true, // Generate declaration (.d.ts) files
+    "declarationMap": true, // Generate map files for declarations
+    "module": "ESNext", // Specify the module code generation (ESNext)
+    "moduleResolution": "Node", // Use Node's module resolution algorithm
+    "target": "ESNext", // Set the JavaScript version to target
+    "esModuleInterop": true, // Allow default imports from modules without a default export
+    "allowJs": true, // Allow JavaScript files to be compiled
+    "skipLibCheck": true, // Skip type checking of declaration files
+    "strict": true, // Enable strict type-checking
+    "baseUrl": ".", // Base directory for resolving non-relative modules
+    "paths": {
+      "@/*": ["src/*"] // Path aliases (if needed)
+    }
+  },
+  "include": ["src/**/*", "declarations.d.ts"], // Include all files inside the 'src' folder
+  "exclude": ["node_modules", "dist"] // Exclude node_modules and dist folder
+}

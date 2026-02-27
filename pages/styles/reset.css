@@ -1,0 +1,29 @@
+/* -----------------CSS RESET------------------------------- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+
+img,
+picture,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+@font-face {
+  font-family: "Playfair Display";
+  src: url("fonts/PlayfairDisplay-VariableFont_wght.ttf") format("woff2");
+  font-display: swap; /* or optional, block, fallback */
+}
+
+/* --------------------------------------------------------- */

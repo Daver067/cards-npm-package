@@ -1,0 +1,105 @@
+@font-face {
+  font-family: "Crete Round";
+  src:
+    url("https://card-factory.info/fonts/creteround-regular-webfont.woff2")
+      format("woff2"),
+    url("https://card-factory.info/fonts/creteround-regular-webfont.woff")
+      format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+:root {
+  --card-flip-speed: 0.3s;
+  --card-size: 75px;
+  --border-color: black;
+}
+
+.card-container {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  box-sizing: border-box;
+  border-radius: calc(0.15 * var(--card-size));
+}
+
+.card-parent * {
+  padding: 0;
+  margin: 0;
+  font-family: "Crete Round", serif;
+  font-size: 1rem;
+
+  /* Prevents text from being highlighted on cards */
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
+  cursor: default;
+}
+
+.card-parent {
+  padding: 0;
+  width: calc(var(--card-size) * 2.5);
+  height: calc(var(--card-size) * 3.5);
+  display: grid;
+}
+
+.card-parent * {
+  font-size: calc((var(--card-size) * 3.5) / 10);
+}
+
+.card-front,
+.card-back {
+  box-sizing: border-box;
+  border-radius: calc(0.15 * var(--card-size));
+  width: 100%;
+  height: 100%;
+  transition: transform var(--card-flip-speed) ease;
+  position: absolute;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.card-back {
+  background-color: #222240;
+  transform: perspective(1000px) rotateY(180deg);
+  border-bottom: 1px rgba(0, 0, 0, 0.541) solid;
+}
+
+.card-back.flipped {
+  transform: perspective(1000px) rotateY(0deg);
+}
+
+.card-front {
+  padding: calc(var(--card-size) / 15);
+  background-color: whitesmoke;
+  border: calc(0.05 * var(--card-size)) solid var(--border-color);
+  transform: perspective(1000px) rotateY(0deg);
+}
+
+.card-front.flipped {
+  --flip-direction: 180deg;
+  transform: perspective(1000px) rotateY(-180deg);
+}
+
+.card-background-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: red;
+  box-sizing: border-box;
+  border-radius: calc(0.15 * var(--card-size));
+  clip-path: inset(0 round calc(0.15 * var(--card-size)));
+  opacity: 0; /* Hidden by default */
+  transition: opacity 0.3s;
+}
+
+.card-shadow {
+  box-shadow:
+    rgba(0, 0, 0, 0.25) 0px 14px 28px,
+    rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}

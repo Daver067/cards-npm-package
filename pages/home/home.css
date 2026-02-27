@@ -1,0 +1,120 @@
+/* These are styles used only for the home page. These are not intended to be used in the final NPM package. */
+
+h1 {
+  font-family: "Playfair Display";
+  font-size: clamp(3rem, 5vw + 2rem, 10rem);
+  font-weight: 700;
+  line-height: 1.1;
+  position: relative;
+  width: max-content;
+
+  margin-top: clamp(2rem, 5vw + 2rem, 2rem);
+
+  color: white;
+  text-shadow:
+    0 1px 0 #ccc,
+    0 2px 0 #c9c9c9,
+    0 3px 0 #bbb,
+    0 4px 0 #b9b9b9,
+    0 5px 0 #aaa,
+    0 6px 1px rgba(0, 0, 0, 0.1),
+    0 0 5px rgba(0, 0, 0, 0.1),
+    0 1px 3px rgba(0, 0, 0, 0.3),
+    0 3px 5px rgba(0, 0, 0, 0.2),
+    0 5px 10px rgba(0, 0, 0, 0.25),
+    0 10px 10px rgba(0, 0, 0, 0.2),
+    0 20px 20px rgba(0, 0, 0, 0.15);
+}
+
+.title {
+  margin-bottom: min(25vw, 15rem);
+  & h1 > * {
+    text-shadow: none;
+  }
+
+  & .deck-base {
+    box-shadow: none;
+    background-color: inherit;
+  }
+}
+
+.hero {
+  max-width: 768px;
+  margin: auto;
+  margin-bottom: 2rem;
+  text-align: left;
+
+  display: flex;
+  flex-direction: column-reverse;
+  gap: min(5vw, 3rem);
+  align-items: center;
+
+  & .text {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: start;
+    margin: min(1rem, 10vw);
+    text-shadow: 2px 2px 2px #000000;
+  }
+
+  & .heading {
+    font-size: clamp(2rem, 1rem + 3vw, 3rem);
+  }
+
+  & .subheading {
+    font-size: clamp(1rem, 0.5rem + 3vw, 1.75rem);
+    color: rgb(232, 231, 231);
+  }
+
+  & .buttons {
+    display: flex;
+    gap: 1rem;
+  }
+
+  & .btn {
+    background-color: black;
+    color: white;
+    border-radius: 0.5rem;
+    padding: 0.75rem;
+    display: flex;
+    gap: 0.75rem;
+    flex-direction: row-reverse;
+
+    & img {
+      filter: invert(1);
+    }
+  }
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+  }
+}
+@media (min-width: 1201px) {
+  .title {
+    & .deck-base {
+      top: -50%;
+    }
+  }
+}
+@media (min-width: 769px) and (max-width: 1200px) {
+  .title {
+    & .deck-base {
+      top: -90%;
+    }
+  }
+}
+@media (min-width: 481px) and (max-width: 768px) {
+  .title {
+    & .deck-base {
+      top: -120%;
+    }
+  }
+}
+@media (max-width: 481px) {
+  .title {
+    & .deck-base {
+      top: -170%;
+    }
+  }
+}

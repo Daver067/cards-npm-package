@@ -1,0 +1,37 @@
+.flash-back {
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  background-color: antiquewhite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flash-front {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  & > span {
+    font-size: 20px;
+    text-align: center;
+  }
+}
+
+.deck-base:has(.flash-back),
+.deck-base:has(.flash-front) {
+  width: calc(var(--card-size) * 5);
+}
+
+.card-parent:has(.flash-back),
+.card-parent:has(.flash-front) {
+  width: calc(var(--card-size) * 5);
+}
+
+.card-dragging {
+  opacity: 1;
+}

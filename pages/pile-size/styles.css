@@ -1,0 +1,11 @@
+.flex-container-column {
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+}
+.flex-container-row {
+  display: flex;
+  flex-direction: row;
+  gap: 5rem;
+  justify-content: space-evenly;
+}
